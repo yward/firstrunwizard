@@ -30,7 +30,4 @@ The First run wizard can be customized to meet specific design goals, or to chan
 			<type>settings</type>
 		</navigation>
 	</navigations>
-	<settings>
-		<personal>OCA\FirstRunWizard\Settings\Personal</personal>
-	</settings>
 </info>
