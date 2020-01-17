@@ -25,29 +25,42 @@ declare(strict_types=1);
 namespace OCA\FirstRunWizard\Controller;
 
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\StreamResponse;
 
 class VideoController extends Controller {
 
 	/**
 	 * @NoAdminRequired
+	 * @NoCSRFRequired
 	 */
 	public function webM() {
 		$file = fopen(__DIR__ . '/../../img/Nextcloud.webm', 'r+');
 		$resp = new StreamResponse($file);
 
 		$resp->addHeader('Content-Type', 'video/webm');
+
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedMediaDomain('\'self\'');
+		$resp->setContentSecurityPolicy($csp);
+
 		return $resp;
 	}
 
 	/**
 	 * @NoAdminRequired
+	 * @NoCSRFRequired
 	 */
 	public function mp4() {
 		$file = fopen(__DIR__ . '/../../img/Nextcloud.mp4', 'r+');
 		$resp = new StreamResponse($file);
 
 		$resp->addHeader('Content-Type', 'video/mp4');
+
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedMediaDomain('\'self\'');
+		$resp->setContentSecurityPolicy($csp);
+
 		return $resp;
 	}
 }
