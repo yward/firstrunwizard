@@ -23,5 +23,8 @@ return [
 	'routes' => [
 		['name' => 'Wizard#show', 'url' => '/wizard', 'verb' => 'GET'],
 		['name' => 'Wizard#disable', 'url' => '/wizard', 'verb' => 'DELETE'],
+
+		['name' => 'Video#webm', 'url' => '/video/webm', 'verb' => 'GET'],
+		['name' => 'Video#mp4', 'url' => '/video/mp4', 'verb' => 'GET'],
 	],
 ];
